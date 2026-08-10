@@ -14,3 +14,9 @@
 - PRUEBA E2E OK: token -> api-proxy -> Evolution -> WhatsApp + registro en messages_log
 - GRANT a service_role agregado a la migracion
 
+### BLOQUE 4 - Frontend Next.js [COMPLETADO 2026-08-10 15:58]
+- Next.js 16 + TS + Tailwind en web/
+- Supabase conectado (client, server, middleware)
+- Login, Dashboard con metricas, Instancias con token real
+- Commit + push a Moblar-Osmon/whatsgate
+
