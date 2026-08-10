@@ -1,0 +1,30 @@
+# Node
+node_modules/
+# Next.js
+.next/
+out/
+# Env y secretos (NUNCA commitear)
+.env
+.env.local
+.env.*.local
+docker/.env
+**/.env
+**/.env.local
+.credenciales-*.txt
+.credenciales-*.md
+# Evolution / datos del motor
+evolution_instances/
+docker/qr-*.png
+docker/qr-*.txt
+# Supabase local
+supabase/.branches/
+supabase/.temp/
+# Deploy
+.vercel/
+# OS / editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+# Logs
+*.logdocker/qr-response.json
