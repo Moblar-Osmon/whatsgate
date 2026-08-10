@@ -1,19 +1,15 @@
-import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/login");
 
-  // Instancias del usuario
   const { data: instances } = await supabase
     .from("instances")
     .select("id, name, status, phone_number");
 
   const instanceIds = (instances ?? []).map((i) => i.id);
 
-  // Mensajes (para metricas)
   let messages: { message_type: string; sent_at: string }[] = [];
   if (instanceIds.length > 0) {
     const { data: msgs } = await supabase
@@ -40,14 +36,11 @@ export default async function DashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-neutral-950 p-8 text-white">
+    <div className="p-8 text-white">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-8 flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold">Dashboard</h1>
-            <p className="mt-1 text-sm text-neutral-400">Resumen de tu cuenta de WhatsGate</p>
-          </div>
-          <span className="text-sm text-neutral-400">{user.email}</span>
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <p className="mt-1 text-sm text-neutral-400">Resumen de tu cuenta de WhatsGate</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
