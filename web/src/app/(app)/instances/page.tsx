@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { CopyToken } from "@/components/CopyToken";
+import { AddInstance } from "@/components/AddInstance";
+import { SyncButton } from "@/components/SyncButton";
 
 export default async function InstancesPage() {
   const supabase = await createClient();
@@ -13,15 +15,18 @@ export default async function InstancesPage() {
     .order("created_at");
 
   return (
-    <div className="min-h-screen bg-neutral-950 p-8 text-white">
+    <div className="p-8 text-white">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold">Mis instancias</h1>
-          <p className="mt-1 text-sm text-neutral-400">Gestiona tus conexiones de WhatsApp</p>
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold">Mis instancias</h1>
+            <p className="mt-1 text-sm text-neutral-400">Gestiona tus conexiones de WhatsApp</p>
+          </div>
+          <div className="flex gap-2"><SyncButton /><AddInstance /></div>
         </div>
 
         {(instances ?? []).length === 0 && (
-          <p className="text-sm text-neutral-500">Aun no tienes instancias.</p>
+          <p className="text-sm text-neutral-500">Aun no tienes instancias. Crea una con el boton de arriba.</p>
         )}
 
         <div className="space-y-4">
