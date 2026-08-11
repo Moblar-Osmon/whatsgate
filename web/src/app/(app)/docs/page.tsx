@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { CodeBlock } from "@/components/CodeBlock";
 
-const PROXY_URL = "https://TU-PROYECTO.supabase.co/functions/v1/api-proxy";
+const PROXY_URL = "https://ipctbyobohuikkhyymos.supabase.co/functions/v1/api-proxy";
 
 export default async function DocsPage() {
   const supabase = await createClient();
