@@ -20,3 +20,14 @@
 - Login, Dashboard con metricas, Instancias con token real
 - Commit + push a Moblar-Osmon/whatsgate
 
+### BLOQUE 5 - Deploy completo [COMPLETADO 2026-08-11 10:34]
+- Frontend en Vercel: whatsgate-cha.vercel.app
+- Supabase Auth configurado (Site URL + Redirect)
+- api-proxy desplegado a produccion (Supabase nube)
+- Motor expuesto via tunel ngrok
+- Secrets EVOLUTION_API_URL y KEY configurados en produccion
+- PRUEBA E2E DESDE INTERNET OK: mensaje enviado via api-proxy nube -> tunel -> motor -> WhatsApp
+- URL real puesta en docs
+- Vercel redespliega automatico con git push
+- PENDIENTE: privar repo, tunel cambia de URL al reiniciar (Hetzner futuro)
+
