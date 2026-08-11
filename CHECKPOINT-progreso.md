@@ -31,3 +31,14 @@
 - Vercel redespliega automatico con git push
 - PENDIENTE: privar repo, tunel cambia de URL al reiniciar (Hetzner futuro)
 
+### BLOQUE 6 - Multi-instancia + PDFs [COMPLETADO 2026-08-11 12:14]
+- api-proxy ampliado con acciones admin (JWT): create-instance, get-qr, list-instances, delete-instance, sync-status
+- UI: boton Agregar instancia con modal + QR en navegador
+- UI: boton Sincronizar estado (actualiza status y numero desde el motor)
+- Multi-instancia funcionando: 2 instancias conectadas (Sergio Personal + Servicio al cliente)
+- Docs con selector de instancia (ejemplos por token)
+- Envio de PDFs probado y documentado (send-file con URL de Storage)
+- Flujo PDF+mensaje documentado (caso cotizacion)
+- Auth dual confirmada: JWT para admin, x-api-token para envio
+- Todo desplegado en produccion (Vercel + Supabase)
+
