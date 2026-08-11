@@ -77,7 +77,7 @@ export function AddInstance() {
           <div className="w-full max-w-md rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-lg font-semibold text-white">Agregar instancia</h3>
-              <button onClick={reset} className="text-neutral-400 hover:text-white">✕</button>
+              <button onClick={reset} className="text-neutral-400 hover:text-white">âœ•</button>
             </div>
 
             {!qr && !connected && (
@@ -106,7 +106,7 @@ export function AddInstance() {
               <div className="text-center">
                 <p className="mb-3 text-sm text-neutral-300">
                   Escanea con WhatsApp del numero nuevo:<br />
-                  <span className="text-neutral-500">Ajustes -> Dispositivos vinculados -> Vincular</span>
+                  <span className="text-neutral-500">Ajustes / Dispositivos vinculados / Vincular</span>
                 </p>
                 <img src={qr.startsWith("data:") ? qr : "data:image/png;base64," + qr} alt="QR" className="mx-auto rounded-lg bg-white p-2" width={240} height={240} />
                 <p className="mt-3 text-xs text-neutral-500">Esperando conexion...</p>
