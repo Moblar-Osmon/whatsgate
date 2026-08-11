@@ -67,6 +67,39 @@ print(res.json())`;
     "caption": "Mi imagen"
   }'`;
 
+  const pdfCurl = `curl -X POST ${PROXY_URL} \\
+  -H "x-api-token: ${token}" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "action": "send-file",
+    "phone": "5215512345678",
+    "url": "https://tu-proyecto.supabase.co/storage/v1/object/sign/pdfs/cotizacion.pdf?token=...",
+    "fileName": "Cotizacion-000079.pdf"
+  }'`;
+
+  const pdfJs = `// 1) Enviar el PDF
+await fetch("${PROXY_URL}", {
+  method: "POST",
+  headers: { "x-api-token": "${token}", "Content-Type": "application/json" },
+  body: JSON.stringify({
+    action: "send-file",
+    phone: "5215512345678",
+    url: "https://.../cotizacion.pdf",
+    fileName: "Cotizacion-000079.pdf",
+  }),
+});
+
+// 2) Enviar el mensaje con los datos
+await fetch("${PROXY_URL}", {
+  method: "POST",
+  headers: { "x-api-token": "${token}", "Content-Type": "application/json" },
+  body: JSON.stringify({
+    action: "send-text",
+    phone: "5215512345678",
+    message: "Hola! Le compartimos su cotizacion.",
+  }),
+});`;
+
   return (
     <div>
       {/* Selector de instancia */}
@@ -108,6 +141,16 @@ print(res.json())`;
       <section className="mb-8 space-y-4">
         <h2 className="text-xl font-semibold text-white">Enviar imagen</h2>
         <CodeBlock lang="cURL" code={imgText} />
+      </section>
+
+      <section className="mb-8 space-y-4">
+        <h2 className="text-xl font-semibold text-white">Enviar archivo / PDF</h2>
+        <p className="text-sm text-neutral-400">
+          Pasa la URL publica del archivo (ej. Supabase Storage) en <code className="text-emerald-300">url</code> y su nombre en <code className="text-emerald-300">fileName</code>. Ideal para cotizaciones, facturas, catalogos.
+        </p>
+        <CodeBlock lang="cURL" code={pdfCurl} />
+        <p className="text-sm text-neutral-400">Enviar PDF + mensaje (como una cotizacion):</p>
+        <CodeBlock lang="JavaScript" code={pdfJs} />
       </section>
     </div>
   );
